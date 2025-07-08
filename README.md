@@ -33,3 +33,13 @@ fig.suptitle('Percentage(%) of top Skills in Job Postings')
 fig.tight_layout(h_pad=0.5)
 ```
 ### Results
+
+![Visualization of Top Skills for Data Jobs](Project\Images\top_3_indemand_skills.png)
+
+### Insights
+
+- SQL and Python are the most in-demand skills across all roles.
+- Data Analysts often require Excel and Tableau alongside SQL.
+- Data Engineers need strong cloud skills (AWS, Azure, Spark).
+- Data Scientists heavily rely on Python, with R and SAS also in use.
+- Role-specific tools vary, but foundational data skills remain key.
