@@ -90,3 +90,35 @@ for i in range(5):
 - Excel experiences a marked increase starting around September, eventually surpassing Python and Tableau by the end of the year.
 - Python and Tableau display relatively stable demand with some minor fluctuations, maintaining their importance in data analyst roles.
 - Sas, while less prominent compared to the others, exhibits a slight upward trend toward the year’s end.
+
+## 3. How well do jobs and skills pay for Data Analysts?
+
+To identify the highest-paying roles and skills, I only got jobs in the United States and looked at their median salary. But first I looked at the salary distributions of common data jobs like Data Scientist, Data Engineer, and Data Analyst, to get an idea of which jobs are paid the most.
+
+View my notebook with detailed steps here: [4_Salary_Analysis](Project\4_Salary_Analysis.ipynb)
+
+### Visualize Data
+
+```python
+sns.boxplot(data=df_us_top5, x='salary_year_avg', y='job_title_short', order=job_order)
+sns.set_theme(style='ticks')
+
+plt.title('Salary Distribution in the US')
+plt.xlabel('Yearly Salary($USD)')
+plt.ylabel('')
+plt.xlim(0, 600000)
+ticks_x = plt.FuncFormatter(lambda y, pos: f'${int(y/1000)}K')
+plt.gca().xaxis.set_major_formatter(ticks_x)
+plt.show()
+```
+
+### Results
+![Salary Analysis for Data Analyst Role](Project\Images\salary.png)
+
+### Insights
+
+- Senior roles (Data Scientist/Engineer) earn significantly more, reaching up to $400K-$600K.
+- Data Scientists show slightly higher top-end salaries than Data Engineers.
+- Data Analysts have the lowest salary range among the roles.
+- Wide IQR for senior roles indicates varied compensation.
+- High-earning outliers suggest top performers earn exceptionally more.
