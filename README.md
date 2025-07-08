@@ -43,3 +43,50 @@ fig.tight_layout(h_pad=0.5)
 - Data Engineers need strong cloud skills (AWS, Azure, Spark).
 - Data Scientists heavily rely on Python, with R and SAS also in use.
 - Role-specific tools vary, but foundational data skills remain key.
+
+
+## 2. How are in-demand skills trending for Data Analysts?
+
+### Visualize Data
+
+```python
+
+df_DA_plot = df_DA_us_percent.iloc[:, :5]
+sns.lineplot(data=df_DA_plot, dashes=False, palette='tab10')
+sns.set_theme(style='ticks')
+sns.despine()
+plt.title('Trending Top Skills for Data Analyst Role in the US')
+plt.ylabel('Likelihood in Job Posting')
+plt.xlabel('')
+plt.legend().remove()
+
+from matplotlib.ticker import PercentFormatter
+ax= plt.gca()
+ax.yaxis.set_major_formatter(PercentFormatter(decimals=0))
+
+last_x = df_DA_plot.index[-1]
+used_y = []
+
+for i in range(5):
+    last_x = df_DA_plot.index[-1]
+    used_y = []
+
+    for i in range(5):
+        y = df_DA_plot.iloc[-1, i]
+
+        while any(abs(y - used) < 1.5 for used in used_y):
+            y += 1  
+        used_y.append(y)
+
+        plt.text(11.2, y, df_DA_plot.columns[i], va='center')
+```
+
+### Results
+![Trending Skills for Data Analyst Roles in the US](Project\Images\trending_skills.png)
+
+### Insights
+
+- SQL remains the most consistently demanded skill throughout the year, although it shows a gradual decline in percentage presence.
+- Excel experiences a marked increase starting around September, eventually surpassing Python and Tableau by the end of the year.
+- Python and Tableau display relatively stable demand with some minor fluctuations, maintaining their importance in data analyst roles.
+- Sas, while less prominent compared to the others, exhibits a slight upward trend toward the year’s end.
