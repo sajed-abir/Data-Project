@@ -148,3 +148,48 @@ ax[0].legend().remove()
 - AI/ML tools (e.g., Hugging Face, MXNet) appear in high-paid skills, signaling demand for AI-integrated analytics.
 - Database/DevOps skills (e.g., Couchbase, GitLab) are both high-paid and in-demand, highlighting the overlap between data analysis and engineering roles.
 - For job opportunities: Master staples like Python, Tableau, and SQL, which dominate demand despite lower pay ceilings.
+
+## 4. What are the most optimal skills to learn for Data Analysts?
+
+### Visualize Data
+```python
+from adjustText import adjust_text
+
+sns.scatterplot(
+    data=df_plot,
+    x='skill_percent',
+    y='median_salary',
+    hue='technology'
+)
+sns.despine()
+sns.set_theme(style='ticks')
+texts = []
+
+for i, txt in enumerate(df_DA_skills_high_demand.index):
+    texts.append(plt.text(df_DA_skills_high_demand['skill_percent'].iloc[i], df_DA_skills_high_demand['median_salary'].iloc[i], txt))
+
+adjust_text(texts, arrowprops=dict(arrowstyle='->', color='r', lw=0.5))
+
+
+from matplotlib.ticker  import PercentFormatter
+ax= plt.gca()
+ax.xaxis.set_major_formatter(PercentFormatter(decimals=0))
+ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda y, pos: f'${int(y/1000)}k'))
+
+plt.xlabel('Percentage(%) DA jobs')
+plt.ylabel('Median Salary')
+plt.title('Most Optimal Skills for Data Analyst')
+plt.tight_layout()
+plt.show()
+ ```
+
+### Results
+![Optimal skills for DA roles](Project\Images\optimal_skills.png)
+
+### Insights
+
+- Python, SQL, and Tableau are the most optimal skills — they offer both high demand and strong salaries.
+- Excel is widely required but offers lower salaries — it's essential but not a salary booster.
+- Power BI, R, and SQL Server strike a good balance between demand and pay — solid secondary skills.
+- Tools like Oracle and Go offer high salaries but are less in demand — useful for niche roles.
+- Word and PowerPoint have low value — low demand and low salary impact. Avoid focusing on them.
