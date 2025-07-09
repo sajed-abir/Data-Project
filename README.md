@@ -1,4 +1,5 @@
 # Overview
+
 This is a comprehensive Python-based data analysis toolkit designed to streamline skills and salary insights across job postings. It features:
 
 - Data ingestion and preprocessing from job postings
@@ -10,48 +11,56 @@ This is a comprehensive Python-based data analysis toolkit designed to streamlin
 - Utility modules for parsing, cleaning, and aggregating skill-related data
 
 The data sourced from Luke Barousse's Python Course which provides a foundation for my analysis, containing detailed information on job titles, salaries, locations, and essential skills. Through a series of Python scripts, I explore key questions such as the most demanded skills, salary trends, and the intersection of demand and salary in data analytics.
+
 # Key Features
+
 - Skill Explosion & Aggregation
 
-    Breaks down nested lists into individual skills, counts occurrences, calculates median salaries, and ranks skills by demand and compensation.
+  Breaks down nested lists into individual skills, counts occurrences, calculates median salaries, and ranks skills by demand and compensation.
 
 - Technology Dictionary Builder
 
-    Parses string-formatted dicts into a unified structure linking job types to their unique associated skills.
+  Parses string-formatted dicts into a unified structure linking job types to their unique associated skills.
 
 - Interactive Visualizations
 
-    Utilizes Seaborn and Matplotlib for scatter plots showing skill frequency vs. median salary; labels are optimized using adjustText.
+  Utilizes Seaborn and Matplotlib for scatter plots showing skill frequency vs. median salary; labels are optimized using adjustText.
 
 # Tools I Used
+
 #### Development Tools
+
      Visual Studio Code
      Git
      GitHub
      Jupiter Notebook
 
 #### Python Libraries
+
     Pandas
     Seaborn
     Matplotlib
     AST (Abstract Syntax Trees)
 
 # Questions
+
 Below are the questions I want to answer in my project:
 
 - What are the skills most in demand for the top 3 most popular data roles?
 - How are in-demand skills trending for Data Analysts?
 - How well do jobs and skills pay for Data Analysts?
 - What are the optimal skills for data analysts to learn? (High Demand AND High Paying)
+
 # The Analysis
 
 ## 1. What are the most demanded skills for the top 3 most popular data roles?
 
 To find the most demanded skills for the top 3 most popular data roles. I filtered out those positions by which ones were the most popular, and got the top 5 skills for these top 3 roles. This query highlights the most popular job titles and their top skills, showing which skills I should pay attention to depending on the role I'm targeting.
 
-View my notebook with detailed steps here: [2_Skills_Count.ipynb](Project\2_Skills_Count.ipynb)
+View my notebook with detailed steps here: [2_Skills_Count.ipynb](Project/2_Skills_Count.ipynb)
 
 ### Visualize Data
+
 ```python
 fig, ax = plt.subplots(len(job_titles),1)
 
@@ -77,9 +86,10 @@ for i, job_title in enumerate(job_titles):
 fig.suptitle('Percentage(%) of top Skills in Job Postings')
 fig.tight_layout(h_pad=0.5)
 ```
+
 ### Results
 
-![Visualization of Top Skills for Data Jobs](Project\Images\top_3_indemand_skills.png)
+![Visualization of Top Skills for Data Jobs](Project/Images/top_3_indemand_skills.png)
 
 ### Insights
 
@@ -88,7 +98,6 @@ fig.tight_layout(h_pad=0.5)
 - Data Engineers need strong cloud skills (AWS, Azure, Spark).
 - Data Scientists heavily rely on Python, with R and SAS also in use.
 - Role-specific tools vary, but foundational data skills remain key.
-
 
 ## 2. How are in-demand skills trending for Data Analysts?
 
@@ -120,14 +129,15 @@ for i in range(5):
         y = df_DA_plot.iloc[-1, i]
 
         while any(abs(y - used) < 1.5 for used in used_y):
-            y += 1  
+            y += 1
         used_y.append(y)
 
         plt.text(11.2, y, df_DA_plot.columns[i], va='center')
 ```
 
 ### Results
-![Trending Skills for Data Analyst Roles in the US](Project\Images\trending_skills.png)
+
+![Trending Skills for Data Analyst Roles in the US](Project/Images/trending_skills.png)
 
 ### Insights
 
@@ -140,7 +150,7 @@ for i in range(5):
 
 To identify the highest-paying roles and skills, I only got jobs in the United States and looked at their median salary. But first I looked at the salary distributions of common data jobs like Data Scientist, Data Engineer, and Data Analyst, to get an idea of which jobs are paid the most.
 
-View my notebook with detailed steps here: [4_Salary_Analysis](Project\4_Salary_Analysis.ipynb)
+View my notebook with detailed steps here: [4_Salary_Analysis](Project/4_Salary_Analysis.ipynb)
 
 ### Visualize Data
 
@@ -158,7 +168,8 @@ plt.show()
 ```
 
 ### Results
-![Salary Analysis for Data Analyst Role](Project\Images\salary.png)
+
+![Salary Analysis for Data Analyst Role](Project/Images/salary.png)
 
 ### Insights
 
@@ -197,6 +208,7 @@ ax[0].legend().remove()
 ## 4. What are the most optimal skills to learn for Data Analysts?
 
 ### Visualize Data
+
 ```python
 from adjustText import adjust_text
 
@@ -226,9 +238,10 @@ plt.ylabel('Median Salary')
 plt.title('Most Optimal Skills for Data Analyst')
 plt.tight_layout()
 plt.show()
- ```
+```
 
 ### Results
+
 ![Optimal skills for DA roles](Project\Images\optimal_skills.png)
 
 ### Insights
