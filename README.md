@@ -193,7 +193,7 @@ ax[0].legend().remove()
 
 ### Results
 
-![Highest paid and in demand skills](Project\Images\top10.png)
+![Highest paid and in demand skills](Project/Images/top10.png)
 
 ### Insights
 
@@ -242,7 +242,7 @@ plt.show()
 
 ### Results
 
-![Optimal skills for DA roles](Project\Images\optimal_skills.png)
+![Optimal skills for DA roles](Project/Images/optimal_skills.png)
 
 ### Insights
 
