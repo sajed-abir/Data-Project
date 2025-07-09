@@ -122,3 +122,29 @@ plt.show()
 - Data Analysts have the lowest salary range among the roles.
 - Wide IQR for senior roles indicates varied compensation.
 - High-earning outliers suggest top performers earn exceptionally more.
+
+## 3.1 Highest Paid & Most Demanded Skills for Data Analysts
+
+### Visualize Data
+
+```python
+fig, ax = plt.subplots(2, 1)
+sns.set_theme(style='ticks')
+# --> Top 10 Highest Paid Skills for Data Analyst
+sns.barplot(data=df_DA_top_pay, x='median', y=df_DA_top_pay.index, ax=ax[0], hue='median', palette='Blues')
+ax[0].legend().remove()
+```
+
+### Results
+
+![Highest paid and in demand skills](Project\Images\top10.png)
+
+### Insights
+
+- Highest Paid Skills are niche/emerging technologies (e.g., dplyr, Hugging Face, Solidity), suggesting specialized expertise commands premium salaries
+- Most In-Demand Skills are foundational tools (e.g., Python, SQL, Excel), reflecting broader industry needs for core data analysis competencies.
+- Niche skills (e.g., Cassandra, VMware) show higher median salaries (up to $175K+), while mainstream tools (e.g., Excel, PowerPoint) likely fall in the $50K–$100K range.
+- Specialization pays: Expertise in less common tools (e.g., MXNet, Ansible) correlates with higher earnings.
+- AI/ML tools (e.g., Hugging Face, MXNet) appear in high-paid skills, signaling demand for AI-integrated analytics.
+- Database/DevOps skills (e.g., Couchbase, GitLab) are both high-paid and in-demand, highlighting the overlap between data analysis and engineering roles.
+- For job opportunities: Master staples like Python, Tableau, and SQL, which dominate demand despite lower pay ceilings.
